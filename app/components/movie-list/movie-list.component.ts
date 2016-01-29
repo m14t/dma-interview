@@ -1,9 +1,11 @@
 import {Component, OnInit} from 'angular2/core';
+import {HTTP_PROVIDERS} from 'angular2/http';
 import {MovieService} from '../../services/movie.service';
 import {Movie} from 'app/interfaces/movie';
 
 @Component({
     providers: [
+        HTTP_PROVIDERS,
         MovieService,
     ],
     selector: 'movie-list',
@@ -16,9 +18,14 @@ export class MovieListComponent implements OnInit {
 
     getMovies() {
         this._movieService.getMovies()
-            .then((movies) => {
-                this.movies = movies;
-            })
+            .subscribe(
+                (movies) => {
+                    this.movies = movies;
+                },
+                (error) => {
+                    alert(`Server error. Try again later`);
+                }
+            )
         ;
     }
 
