@@ -12,6 +12,17 @@
     class="info separated-bottom"
 >
     <div>1 - {{ displayedMovies.length }} of {{ movies.length }} results</div>
+    <div>
+        <label for="sortBy">Sort By:</label>
+        <select
+            id="sortBy"
+            [(ngModel)]="sortBy"
+            (change)="sortData()"
+        >
+            <option value="date" selected>Date</option>
+            <option value="title">Name</option>
+        </select>
+    </div>
 </div>
 
 <ul class="movie-list">

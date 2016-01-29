@@ -22,6 +22,7 @@ export class MovieListComponent implements OnInit {
     public displayedMovies: Movie[];
     public filter: string;
     public movies: Movie[];
+    public sortBy: string = 'title';
 
     constructor(private _movieService: MovieService) { }
 
@@ -43,12 +44,42 @@ export class MovieListComponent implements OnInit {
                 (movies) => {
                     this.movies = movies;
                     this.filterData();
+                    this.sortData();
                 },
                 (error) => {
                     alert(`Server error. Try again later`);
                 }
             )
         ;
+    }
+
+    sortData() {
+        // Need to fix this so that it is triggered after the change event
+        // persists via ngModel (which would allow us to remove this setTimeout)
+        setTimeout(() => {
+            this.displayedMovies.sort((a, b) => {
+                let aVal = a[this.sortBy];
+                let bVal = b[this.sortBy];
+
+                if (
+                    'string' === (typeof aVal) &&
+                    'string' === (typeof bVal)
+                ) {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                }
+
+                if (aVal == bVal) {
+                    return 0;
+                }
+
+                if (aVal < bVal) {
+                    return -1;
+                }
+
+                return 1;
+            })
+        }, 0);
     }
 
     ngOnInit() {
