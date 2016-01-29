@@ -19,15 +19,30 @@ import {MovieListItemComponent} from '../movie-list-item/movie-list-item.compone
     templateUrl: 'app/components/movie-list/movie-list.component.html',
 })
 export class MovieListComponent implements OnInit {
-    public movies: Movie[];
+    public displayedMovies: Movie[];
+    public filter: string;
+    private movies: Movie[];
 
     constructor(private _movieService: MovieService) { }
 
-    getMovies() {
-        this._movieService.getMoviesArray()
+    filterData() {
+        let regexStr = (this.filter || '')
+            .split(/\W+/)
+            .join('.*')
+        ;
+        let regex = new RegExp(regexStr, 'i');
+
+        this.displayedMovies = this.movies.filter((movie) => {
+            return regex.test(movie.title);
+        })
+    }
+
+    fetchMovies() {
+        return this._movieService.getMoviesArray()
             .subscribe(
                 (movies) => {
                     this.movies = movies;
+                    this.filterData();
                 },
                 (error) => {
                     alert(`Server error. Try again later`);
@@ -37,6 +52,6 @@ export class MovieListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getMovies();
+        this.fetchMovies();
     }
 }

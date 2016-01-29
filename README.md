@@ -25,7 +25,6 @@ npm start
         * AngularJs Core
         * Http module
         * Router module
-* [ ] Add filtering of movies
 * [ ] Add sorting by name/date
 * [ ] Add pagination (5 per page)
 * [ ] Add user login (and only show Watchlist links when logged in)

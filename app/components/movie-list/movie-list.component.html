@@ -1,5 +1,14 @@
+<input
+    class="search"
+    [(ngModel)]="filter"
+    (keyup)="filterData()"
+    placeholder="🔍 search"
+/>
+
+<hr>
+
 <ul class="movie-list">
-    <li *ngFor="#movie of movies">
+    <li *ngFor="#movie of displayedMovies">
         <movie-list-item
             [movie]="movie"
         >
