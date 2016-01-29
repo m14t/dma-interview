@@ -28,6 +28,9 @@ npm start
 * [ ] Add pagination (5 per page)
 * [ ] Add user login (and only show Watchlist links when logged in)
 * [ ] Create real MovieDetail page (currently this is using the MovieListDetail component which differs slightly)
+* [ ] Convert MovieListItemComponent.getFormatedRuntime to a [Pipe](https://angular.io/docs/ts/latest/guide/pipes.html)
+* [ ] Update CSS to use SASS for better management, variables, etc.
+* [ ] Add a build step to optimize images
 
 ## Given information:
 
