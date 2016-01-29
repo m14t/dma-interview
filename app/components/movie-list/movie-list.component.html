@@ -1,11 +1,18 @@
-<input
-    class="search"
-    [(ngModel)]="filter"
-    (keyup)="filterData()"
-    placeholder="🔍 search"
-/>
+<div class="search separated-bottom">
+    <input
+        class="search"
+        [(ngModel)]="filter"
+        (keyup)="filterData()"
+        placeholder="🔍 search"
+    />
+</div>
 
-<hr>
+<div
+    *ngIf="displayedMovies && movies"
+    class="info separated-bottom"
+>
+    <div>1 - {{ displayedMovies.length }} of {{ movies.length }} results</div>
+</div>
 
 <ul class="movie-list">
     <li *ngFor="#movie of displayedMovies">

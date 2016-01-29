@@ -21,7 +21,7 @@ import {MovieListItemComponent} from '../movie-list-item/movie-list-item.compone
 export class MovieListComponent implements OnInit {
     public displayedMovies: Movie[];
     public filter: string;
-    private movies: Movie[];
+    public movies: Movie[];
 
     constructor(private _movieService: MovieService) { }
 
