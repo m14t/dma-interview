@@ -2,6 +2,9 @@
 
 <ul>
     <li *ngFor="#movie of movies">
-        {{movie.title}}
+        <movie-list-item
+            [movie]="movie"
+        >
+        </movie-list-item>
     </li>
 </ul>

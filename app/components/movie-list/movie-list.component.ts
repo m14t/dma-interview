@@ -2,8 +2,12 @@ import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {MovieService} from '../../services/movie.service';
 import {Movie} from 'app/interfaces/movie';
+import {MovieListItemComponent} from '../movie-list-item/movie-list-item.component';
 
 @Component({
+    directives: [
+        MovieListItemComponent,
+    ],
     providers: [
         HTTP_PROVIDERS,
         MovieService,
