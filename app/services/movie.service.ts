@@ -25,6 +25,16 @@ export class MovieService {
         ;
     }
 
+    getMovieBySlug(slug) {
+        return this.getMoviesArray()
+            .map((movies) => {
+                return movies.filter((movie) => {
+                    return movie.slug === slug;
+                })[0];
+            })
+        ;
+    }
+
     private logAndPassOn (error: Error) {
         console.error(error);
         return Observable.throw(error);

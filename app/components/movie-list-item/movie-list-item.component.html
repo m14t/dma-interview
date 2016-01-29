@@ -1,7 +1,7 @@
 <div class="movie-list-item">
     <img class="image" src="{{movie.image}}">
     <div>
-        <span class="title">{{movie.title}}</span>
+        <a class="title" [routerLink]="['MovieDetail', { slug: movie.slug }]">{{movie.title}}</a>
         <span class="rating btn info">{{movie.rating}}</span>
         <br>
         <a class="watch-list btn action" href="javascript:void(0)">

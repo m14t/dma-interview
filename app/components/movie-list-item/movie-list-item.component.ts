@@ -1,7 +1,12 @@
 import {Component} from 'angular2/core';
 import {Movie} from 'app/interfaces/movie';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+
 
 @Component({
+    directives: [
+        ROUTER_DIRECTIVES,
+    ],
     inputs: [
         'movie',
     ],
