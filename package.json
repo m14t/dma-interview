@@ -1,0 +1,9 @@
+{
+  "author": "Matt Farmer <work@mattfarmer.net>",
+  "description": "An AngularJS 2.0 solution for an interview at Disney",
+  "license": "ISC",
+  "name": "dma-interview",
+  "scripts": {
+  },
+  "version": "1.0.0"
+}
