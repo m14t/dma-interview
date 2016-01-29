@@ -1,0 +1,45 @@
+.movie-list-item {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    margin: 0px auto 40px;
+}
+
+.image {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+.btn {
+    color: #fff;
+    display: inline-block;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.btn.info {
+    background-color: #337ab7;
+    border: 1px solid #2e6da4;
+}
+.btn.action {
+    background-color: #5cb85c;
+    border: 1px solid #4cae4c;
+}
+
+.watch-list {
+    box-shadow: 5px 5px 0px #000;
+    margin-top: 10px
+}
+
+.rating {
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+
+}

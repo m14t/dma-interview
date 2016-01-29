@@ -13,6 +13,9 @@ import {MovieListItemComponent} from '../movie-list-item/movie-list-item.compone
         MovieService,
     ],
     selector: 'movie-list',
+    styleUrls: [
+        'app/components/movie-list/movie-list.component.css',
+    ],
     templateUrl: 'app/components/movie-list/movie-list.component.html',
 })
 export class MovieListComponent implements OnInit {

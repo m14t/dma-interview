@@ -1,2 +1,15 @@
-{{movie.title}}
-
+<div class="movie-list-item">
+    <img class="image" src="{{movie.image}}">
+    <div>
+        <span class="title">{{movie.title}}</span>
+        <span class="rating btn info">{{movie.rating}}</span>
+        <br>
+        <a class="watch-list btn action" href="javascript:void(0)">
+            Add to Watch List
+        </a>
+    </div>
+    <div>
+        <strong>Release Date:</strong> {{movie.date | date:'longDate'}}<br>
+        <strong>Run Time:</strong> {{movie.run_time}}
+    </div>
+</div>
