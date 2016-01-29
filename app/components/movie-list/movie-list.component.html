@@ -22,6 +22,10 @@
             <option value="date" selected>Date</option>
             <option value="title">Name</option>
         </select>
+        <span (click)="toggleSortDirection()">
+            <span *ngIf="'ASC' === sortDirection">↓</span>
+            <span *ngIf="'DESC' === sortDirection">↑</span>
+        </span>
     </div>
 </div>
 

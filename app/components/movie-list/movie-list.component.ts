@@ -4,6 +4,9 @@ import {MovieService} from '../../services/movie.service';
 import {Movie} from 'app/interfaces/movie';
 import {MovieListItemComponent} from '../movie-list-item/movie-list-item.component';
 
+const ASC = 'ASC';
+const DESC = 'DESC';
+
 @Component({
     directives: [
         MovieListItemComponent,
@@ -23,6 +26,7 @@ export class MovieListComponent implements OnInit {
     public filter: string;
     public movies: Movie[];
     public sortBy: string = 'title';
+    public sortDirection: string = ASC;
 
     constructor(private _movieService: MovieService) { }
 
@@ -74,12 +78,21 @@ export class MovieListComponent implements OnInit {
                 }
 
                 if (aVal < bVal) {
-                    return -1;
+                    return (ASC === this.sortDirection) ? -1 : 1;
                 }
 
-                return 1;
+                return (ASC === this.sortDirection) ? 1 : -1;
             })
         }, 0);
+    }
+
+    toggleSortDirection() {
+        if (ASC === this.sortDirection) {
+            this.sortDirection = DESC;
+        } else {
+            this.sortDirection = ASC;
+        }
+        this.sortData();
     }
 
     ngOnInit() {
