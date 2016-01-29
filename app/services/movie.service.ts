@@ -10,7 +10,7 @@ export class MovieService {
     constructor (private http: Http) {
     }
 
-    getMovies() {
+    getMoviesArray() {
         return this.http.get(this._moviesUrl)
             // Parse the data to json (and only keep the items)
             .map(res => res.json().items)
