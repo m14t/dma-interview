@@ -12,8 +12,17 @@ export class MovieService {
 
     getMovies() {
         return this.http.get(this._moviesUrl)
-            .map(res => <Movie[]> res.json().items)
-            .catch(this.logAndPassOn);
+            // Parse the data to json (and only keep the items)
+            .map(res => res.json().items)
+            // Make the dates real dates
+            .map((movies) => {
+                return movies.map((movie) => {
+                    movie.date = new Date(movie.date);
+                    return <Movie> movie;
+                });
+            })
+            .catch(this.logAndPassOn)
+        ;
     }
 
     private logAndPassOn (error: Error) {

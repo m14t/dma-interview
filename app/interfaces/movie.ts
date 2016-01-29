@@ -1,5 +1,5 @@
 export interface Movie {
-    date: string,
+    date: any,
     image: string,
     rating: string,
     run_time: number,
