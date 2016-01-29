@@ -25,6 +25,11 @@ npm start
         * AngularJs Core
         * Http module
         * Router module
+* [ ] Add filtering of movies
+* [ ] Add sorting by name/date
+* [ ] Add pagination (5 per page)
+* [ ] Add user login (and only show Watchlist links when logged in)
+* [ ] Create real MovieDetail page (currently this is using the MovieListDetail component which differs slightly)
 
 ## Given information:
 
