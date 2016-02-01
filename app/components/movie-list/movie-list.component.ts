@@ -3,6 +3,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {MovieListItemComponent} from '../movie-list-item/movie-list-item.component';
 import {MovieService} from '../../services/movie.service';
 import {Movie} from '../../interfaces/movie';
+import {PaginatorComponent} from '../paginator/paginator.component';
 
 const ASC = 'ASC';
 const DESC = 'DESC';
@@ -10,6 +11,7 @@ const DESC = 'DESC';
 @Component({
     directives: [
         MovieListItemComponent,
+        PaginatorComponent,
     ],
     providers: [
         HTTP_PROVIDERS,
@@ -83,6 +85,11 @@ export class MovieListComponent implements OnInit {
 
                 return (ASC === this.sortDirection) ? 1 : -1;
             })
+
+            // This is a simple way to assign a clone of our array to the same
+            // variable, which for some reason is necessary to trigger a change
+            // event detectable inside our Paginator
+            this.displayedMovies = this.displayedMovies.slice(0);
         }, 0);
     }
 

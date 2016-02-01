@@ -29,11 +29,12 @@
     </div>
 </div>
 
-<ul class="movie-list">
-    <li *ngFor="#movie of displayedMovies">
-        <movie-list-item
-            [movie]="movie"
-        >
-        </movie-list-item>
-    </li>
-</ul>
+<paginator
+    [items]="displayedMovies"
+>
+    <movie-list-item
+        template="#item #i=index"
+        [movie]="item"
+    >
+    </movie-list-item>
+</paginator>

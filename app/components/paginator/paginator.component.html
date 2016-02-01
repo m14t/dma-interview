@@ -1,0 +1,27 @@
+<ul *ngIf="pages">
+    <template ngFor #item
+        [ngForOf]="pages[currentPage]"
+        [ngForTemplate]="contentTpl"
+    >
+    </template>
+</ul>
+
+<div class="pageNav">
+    <ul *ngIf="pages?.length > 1">
+        <li *ngFor="#page of pages, #i=index">
+            <a href="javscript:void(0);" (click)="currentPage = i">{{ i+1 }}</a>
+        </li>
+    </ul>
+    <a
+        *ngIf="0 !== currentPage"
+        href="javscript:void(0);"
+        (click)="currentPage = currentPage - 1">
+        Previous
+    </a>
+    <a
+        *ngIf="pages?.length - 1 !== currentPage"
+        href="javscript:void(0);"
+        (click)="currentPage = currentPage + 1">
+        Next
+    </a>
+</div>
