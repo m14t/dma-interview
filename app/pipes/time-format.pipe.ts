@@ -10,7 +10,7 @@ const SECS_IN_MIN = 60;
 @Pipe({name: 'timeFormat'})
 export class TimeFormatPipe implements PipeTransform {
     transform(seconds: number): string {
-        let output = [];
+        let output: string[] = [];
 
         let hours = Math.floor(seconds / SECS_IN_HOUR);
         if (0 !== hours) {

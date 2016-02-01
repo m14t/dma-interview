@@ -16,7 +16,7 @@ export class MovieService {
             .map(res => res.json().items)
             // Make the dates real dates
             .map((movies) => {
-                return movies.map((movie) => {
+                return movies.map((movie: any) => {
                     movie.date = new Date(movie.date);
                     return <Movie> movie;
                 });
@@ -25,10 +25,10 @@ export class MovieService {
         ;
     }
 
-    getMovieBySlug(slug) {
+    getMovieBySlug(slug: string) {
         return this.getMoviesArray()
-            .map((movies) => {
-                return movies.filter((movie) => {
+            .map((movies: Movie[]) => {
+                return movies.filter((movie: Movie) => {
                     return movie.slug === slug;
                 })[0];
             })
